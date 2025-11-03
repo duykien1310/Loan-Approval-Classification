@@ -71,16 +71,28 @@ git clone https://github.com/duykien1310/Loan-Approval-Classification.git
 cd Loan-Approval-Classification
 ```
 
-### 🏗️ Install dependencies:
+### Create a Virtual Environment
 
 ```bash
-pip install -r requirements.txt
+python3 -m venv venv
 ```
 
-### 🧪 Run the notebook or script:
+### Activate the Environment
 
 ```bash
-python loan_approval_classification.py
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install pandas numpy scikit-learn joblib
+```
+
+### Run Model
+
+```bash
+python3 main.py
 ```
 
 ### The console will display:

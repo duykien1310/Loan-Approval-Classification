@@ -5,6 +5,12 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, precision_score, recall_score, f1_score
 from joblib import Parallel, delayed
 
+# Config
+N_TREES = 100
+MAX_DEPTH = 15
+MIN_SAMPLES_SPLIT = 30
+N_FEATURES = 3
+
 # Load datasets
 train_data = pd.read_csv('train.csv')
 test_data = pd.read_csv('test.csv')
@@ -188,7 +194,7 @@ def random_forest_train_parallel(X, y, n_trees, max_depth, min_samples_split, n_
                                  for _ in range(n_trees))
     return forest
 
-forest = random_forest_train_parallel(X_train, y_train, n_trees=100, max_depth=15, min_samples_split=30, n_features=3)
+forest = random_forest_train_parallel(X_train, y_train, n_trees=N_TREES, max_depth=MAX_DEPTH, min_samples_split=MIN_SAMPLES_SPLIT, n_features=N_FEATURES)
 
 #Dự đoán
 y_pred = random_forest_predict(forest, X_test)
